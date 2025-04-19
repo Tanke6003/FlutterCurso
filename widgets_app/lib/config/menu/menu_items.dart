@@ -17,13 +17,13 @@ const List<MenuItems> menuItems = [
   MenuItems(
     title: 'Buttons',
     subTitle:'Various types of buttons',  
-    link: '/',
+    link: '/buttons',
     icon: Icons.smart_button_outlined,
   ),
    MenuItems(
     title: 'Cards',
     subTitle:'Various types of cards', 
-    link: '/',
+    link: '/cards',
     icon: Icons.credit_card_outlined,  
   )
 
