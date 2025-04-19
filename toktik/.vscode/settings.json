@@ -6,5 +6,6 @@
         "scminput": false
     },
     "scm.compactFolders": false,
-    "editor.suggest.showFolders": false
+    "editor.suggest.showFolders": false,
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
