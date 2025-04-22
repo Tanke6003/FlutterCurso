@@ -25,6 +25,12 @@ const List<MenuItems> menuItems = [
     subTitle:'Various types of cards', 
     link: '/cards',
     icon: Icons.credit_card_outlined,  
-  )
+  ),
+  // MenuItems(
+  //   title: 'Animated',
+  //   subTitle:'Animated widgets', 
+  //   link: '/animated',
+  //   icon: Icons.home_outlined,  
+  // ),
 
 ]; // Menu items list 
