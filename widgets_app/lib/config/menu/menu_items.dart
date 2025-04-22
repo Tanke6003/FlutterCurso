@@ -32,5 +32,11 @@ const List<MenuItems> menuItems = [
     link: '/progress',
     icon: Icons.refresh_rounded,  
   ),
+  MenuItems(
+    title: 'Snackbars & dialogs',
+    subTitle:'Snackbars & dialogs', 
+    link: '/snackbar',
+    icon: Icons.inbox_outlined,  
+  ),
 
 ]; // Menu items list 
