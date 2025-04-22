@@ -26,11 +26,11 @@ const List<MenuItems> menuItems = [
     link: '/cards',
     icon: Icons.credit_card_outlined,  
   ),
-  // MenuItems(
-  //   title: 'Animated',
-  //   subTitle:'Animated widgets', 
-  //   link: '/animated',
-  //   icon: Icons.home_outlined,  
-  // ),
+  MenuItems(
+    title: 'Progress Indicators',
+    subTitle:'Generales y controlados', 
+    link: '/progress',
+    icon: Icons.refresh_rounded,  
+  ),
 
 ]; // Menu items list 
