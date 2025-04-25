@@ -54,6 +54,12 @@ const List<MenuItems> menuItems = [
     subTitle: 'example of tutorial',
     link: '/tutorial',
     icon: Icons.tour_outlined,
-  )
+  ),
+  MenuItems(
+    title: 'Infinite Scroll',
+    subTitle: 'Example of infinite scroll',
+    link: '/infinite-scroll',
+    icon: Icons.arrow_circle_down_outlined,
+    )
 
 ]; // Menu items list 
