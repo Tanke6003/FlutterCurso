@@ -15,6 +15,12 @@ class MenuItems {
 
 const List<MenuItems> menuItems = [
   MenuItems(
+    title: 'Counter Riverpod',
+    subTitle: 'Counter with Riverpod',
+    link: '/counter',
+    icon: Icons.add_circle_outline,
+  ),
+  MenuItems(
     title: 'Buttons',
     subTitle:'Various types of buttons',  
     link: '/buttons',
