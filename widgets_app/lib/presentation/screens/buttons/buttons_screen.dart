@@ -13,7 +13,7 @@ class ButtonsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Buttons'),
       ),
-      body:_bottonsView(),
+      body:_BottonsView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           context.pop();
@@ -25,8 +25,8 @@ class ButtonsScreen extends StatelessWidget {
   }
 }
 
-class _bottonsView extends StatelessWidget {
-  const _bottonsView();
+class _BottonsView extends StatelessWidget {
+  const _BottonsView();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _bottonsView extends StatelessWidget {
             ElevatedButton(child: const Text('Elevanted'),onPressed: () {
               
             }, ),
-            const ElevatedButton(child: const Text('Elevanted Disabled'),onPressed:null),
+             ElevatedButton(onPressed:null, child:  Text('Elevanted Disabled')),
             ElevatedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.access_alarm_rounded),

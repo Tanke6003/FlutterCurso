@@ -27,7 +27,7 @@ class _CardsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+  
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -135,7 +135,7 @@ class _CardType3 extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return Card(
-      color: colors.surfaceVariant,
+      color: colors.surfaceContainerHighest,
       //color: Colors.white,
       elevation: elevation,
       child: Padding(
@@ -164,7 +164,7 @@ class _CardType4 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
+    
     return Card(
       clipBehavior: Clip.hardEdge,
       //color: Colors.white,
