@@ -38,5 +38,11 @@ const List<MenuItems> menuItems = [
     link: '/snackbar',
     icon: Icons.inbox_outlined,  
   ),
+  MenuItems(
+    title: 'AnimatedContainer',
+    subTitle:'Container with animation',
+    link: '/animated', 
+    icon: Icons.square_outlined,  
+  ),
 
 ]; // Menu items list 
