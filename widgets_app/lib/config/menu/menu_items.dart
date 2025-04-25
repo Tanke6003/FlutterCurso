@@ -47,6 +47,13 @@ const List<MenuItems> menuItems = [
   MenuItems(title: 'UI-Controls',
    subTitle: 'Various types of UI controls',
     link: '/ui-controls',
-    icon: Icons.control_camera_outlined,)
+    icon: Icons.control_camera_outlined,
+    ),
+  MenuItems(
+    title:'tutorial',
+    subTitle: 'example of tutorial',
+    link: '/tutorial',
+    icon: Icons.tour_outlined,
+  )
 
 ]; // Menu items list 

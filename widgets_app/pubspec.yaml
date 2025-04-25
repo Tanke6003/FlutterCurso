@@ -7,6 +7,7 @@ environment:
   sdk: ^3.7.2
 
 dependencies:
+  animate_do: ^4.2.0
   flutter:
     sdk: flutter
   go_router: ^15.0.0
@@ -18,7 +19,23 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/icon/icon.png
+    - assets/images/
+
 flutter_icons:
   android: true
   ios: true
   image_path: "assets/icon/icon.png"
+  remove_alpha_ios: true
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/icon/icon.png"
+  web:
+    generate: false
+    image_path: "assets/icon/icon.png"
+  windows:
+    generate: false
+    image_path: "assets/icon/icon.png"
+  macos:
+    generate: false
+    image_path: "assets/icon/icon.png"
