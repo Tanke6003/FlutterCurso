@@ -66,6 +66,12 @@ const List<MenuItems> menuItems = [
     subTitle: 'Example of infinite scroll',
     link: '/infinite-scroll',
     icon: Icons.arrow_circle_down_outlined,
-    )
+    ),
+  MenuItems(
+    title: 'Theme Changer',
+    subTitle: 'Change theme of the app',
+    link: '/theme-changer',
+    icon: Icons.color_lens_outlined                   ,
+  ),
 
 ]; // Menu items list 
