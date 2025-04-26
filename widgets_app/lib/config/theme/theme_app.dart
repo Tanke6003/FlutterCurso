@@ -36,4 +36,12 @@ class ThemeApp {
       centerTitle: true,
     ),
   );
+  ThemeApp copyWith({
+    int? selectedColorIndex,
+    bool? isDarkMode,
+  }) =>  ThemeApp(
+      selectedColorIndex: selectedColorIndex ?? this.selectedColorIndex,
+      isDarkMode: isDarkMode ?? this.isDarkMode,
+    );
+  
 }
