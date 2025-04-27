@@ -6,7 +6,7 @@ class MovieMapper {
 
   static Movie movieDBToEntity(MovieFromMovieDB movie) => Movie(
     adult: movie.adult,
-    backdropPath: movie.backdropPath != '' ?  'https://api.themoviedb.org/t/p/w500${movie.backdropPath}': 'https://placehold.co/500x300' ,
+    backdropPath: movie.backdropPath != '' ?  'https://image.tmdb.org/t/p/w500/${movie.backdropPath}': 'https://placehold.co/500x300' ,
     genreIds: movie.genreIds.map((e) => e.toString()).toList(),
     id: movie.id,
     originalLanguage: movie.originalLanguage,
