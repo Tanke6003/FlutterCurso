@@ -41,7 +41,8 @@ class MovieFromMovieDB {
         originalLanguage: json["original_language"],
         originalTitle: json["original_title"],
         overview: json["overview"] ??"no overview",
-        popularity: json["popularity"]?.toDouble(),
+        //TODO: MAYBE Change
+        popularity: double.tryParse(json["popularity"].toString().replaceAll('.', ''))??0,
         posterPath: json["poster_path"] ?? "",
         releaseDate: DateTime.parse(json["release_date"]),
         title: json["title"],

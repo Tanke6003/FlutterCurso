@@ -6,14 +6,14 @@ class MovieMapper {
 
   static Movie movieDBToEntity(MovieFromMovieDB movie) => Movie(
     adult: movie.adult,
-    backdropPath: movie.backdropPath != '' ?  'https://image.tmdb.org/t/p/w500/${movie.backdropPath}': 'https://placehold.co/500x300' ,
+    backdropPath: movie.backdropPath != '' ?  'https://image.tmdb.org/t/p/w500/${movie.backdropPath}': 'no-backDrop' ,
     genreIds: movie.genreIds.map((e) => e.toString()).toList(),
     id: movie.id,
     originalLanguage: movie.originalLanguage,
     originalTitle: movie.originalTitle,
     overview: movie.overview,
     popularity: movie.popularity,
-    posterPath: movie.posterPath != '' ?  'https://api.themoviedb.org/t/p/w500${movie.posterPath}': 'no-poster' ,
+    posterPath: movie.posterPath != '' ?  'https://image.tmdb.org/t/p/w500/${movie.posterPath}': 'no-poster' ,
     releaseDate: movie.releaseDate,
     title: movie.title,
     video: movie.video,

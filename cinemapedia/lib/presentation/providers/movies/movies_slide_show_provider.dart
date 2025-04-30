@@ -11,5 +11,8 @@ final moviesSlideShowProvider = Provider<List<Movie>>((ref) {
   if(nowPlayingMovies.isEmpty) {
     return [];
   }
-  return nowPlayingMovies.sublist(0, 6);
+return nowPlayingMovies
+    
+    .where((movie) => movie.backdropPath.length > 60).toList().sublist(0, 6);
+
 });
