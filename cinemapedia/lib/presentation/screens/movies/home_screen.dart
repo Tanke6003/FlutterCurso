@@ -1,3 +1,4 @@
+import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:cinemapedia/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +75,8 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                 MovieHorizontalListview(
                   movies: moviesPlayingNow,
                   title: 'En cines',
-                  subtitle: 'Lunes 12',
+                  subtitle: HumanFormats.getDateWithDayNameAndNumber(DateTime.now()),
+
                   loadNextPage:
                       () =>
                           ref
@@ -84,7 +86,7 @@ class _HomeViewState extends ConsumerState<_HomeView> {
                 MovieHorizontalListview(
                   movies: upComingMovies,
                   title: 'Proximamente',
-                  subtitle: 'Lunes 12',
+                  subtitle: HumanFormats.getDateWithDayNameAndNumber(DateTime.now()),
                   loadNextPage:
                       () => ref.read(upcomingProvider.notifier).loadNextPage(),
                 ),
