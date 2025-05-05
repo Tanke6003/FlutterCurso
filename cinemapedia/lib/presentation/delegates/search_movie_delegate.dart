@@ -14,22 +14,28 @@ class SearchMovieDelegate extends SearchDelegate<Movie?> {
 
 
   final SearchMoviesCallback searchMovies;
+  List<Movie> initialMovies;
 
   StreamController<List<Movie>> debouncedMovies = StreamController.broadcast();
+  StreamController<bool> isLoadingStream = StreamController.broadcast();
   Timer? _debounceTimer;
 
-  SearchMovieDelegate({required this.searchMovies});
+  SearchMovieDelegate({required this.searchMovies,required this.initialMovies  });
 
 
   void _onQueryChange(String query){
+    isLoadingStream.add(true);
     if(_debounceTimer?.isActive?? false) _debounceTimer!.cancel();
     _debounceTimer = Timer(const Duration(microseconds: 500), () async {
-      if(query.isEmpty) {
-        debouncedMovies.add([]);
-        return;
-      }
+      // if(query.isEmpty) {
+      //   debouncedMovies.add([]);
+      //   return;
+      // }
       final movies = await searchMovies(query);
+            initialMovies = movies;
       debouncedMovies.add(movies);
+      isLoadingStream.add(false);
+
     });
 
   }
@@ -44,10 +50,23 @@ class SearchMovieDelegate extends SearchDelegate<Movie?> {
   List<Widget>? buildActions(BuildContext context) {
     
     return[
-      FadeIn(
+      StreamBuilder( stream: isLoadingStream.stream,
+      initialData: false,
+       builder: (context, snapshot) {
+          if(snapshot.data??false){
+            return SpinPerfect(
+        duration: const Duration(seconds: 10),
+        spins: 10,
+        infinite: true,
+       
+         child:  IconButton(onPressed: ()=> query = "", icon: Icon(Icons.refresh)));
+          }
+          return FadeIn(
         animate:  query.isNotEmpty,
-         child:  IconButton(onPressed: ()=> query = "", icon: Icon(Icons.delete)))
-        
+         child:  IconButton(onPressed: ()=> query = "", icon: Icon(Icons.delete)));
+      },)
+    
+       
     ];
   }
 
@@ -60,32 +79,37 @@ class SearchMovieDelegate extends SearchDelegate<Movie?> {
       }, icon: Icon(Icons.arrow_back_rounded));
   }
 
+  Widget buildResultsAndSuggestions(){
+    return StreamBuilder(
+          initialData: initialMovies,
+          stream: debouncedMovies.stream,
+
+          builder: (context, snapshot) {
+          final  movies = snapshot.data ?? [];
+          return ListView.builder(
+            itemCount: movies.length,
+            itemBuilder: (context, index) {
+              return _MovieSearchItem(movie: movies[index], onMovieSelected: (context,movie){
+                clearStreams();
+                close(context,movie);
+
+              } );
+          },);
+        },);
+  }
+
+
+
   @override
   Widget buildResults(BuildContext context) {
-    return Text('buildResults');
+      return buildResultsAndSuggestions();
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
 
     _onQueryChange(query);
-    return StreamBuilder(
-      //future: searchMovies(query),
-      stream: debouncedMovies.stream,
-
-      builder: (context, snapshot) {
-      //if(snapshot.hasData)
-      final  movies = snapshot.data ?? [];
-      return ListView.builder(
-        itemCount: movies.length,
-        itemBuilder: (context, index) {
-          return _MovieSearchItem(movie: movies[index], onMovieSelected: (context,movie){
-            clearStreams();
-            close(context,movie);
-
-          } );
-      },);
-    },);
+    return buildResultsAndSuggestions();
   }
   
 }

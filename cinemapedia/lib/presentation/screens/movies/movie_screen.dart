@@ -1,6 +1,5 @@
 
 import 'package:animate_do/animate_do.dart';
-import 'package:cinemapedia/domain/entities/actor.dart';
 import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -92,7 +91,7 @@ class _ActorsListView extends ConsumerWidget {
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(actor.profilePath,
                   height: 180,
-                  width: 135,
+                  width: 135, 
                   fit: BoxFit.cover),
                   
                 ),
